@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Scoreboard from "./components/Scoreboard/Scoreboard";
+import Game from "./components/Game/Game";
+import Timer from "./components/Timer/Timer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Where is Waldo?</h1>
+      <Timer />
+      <Game />
+      <Scoreboard />
     </div>
   );
 }
