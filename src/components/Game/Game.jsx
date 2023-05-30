@@ -2,18 +2,21 @@ import React, { useState } from "react";
 import styles from "./Game.css";
 import waldo from "../../assets/waldo.jpeg";
 
-function Game() {
+function Game(props) {
   const [found, setFound] = useState(false);
   const [clickX, setClickX] = useState(0);
   const [clickY, setClickY] = useState(0);
   const waldoX = 300; // Sample Waldo X coordinate
   const waldoY = 200; // Sample Waldo Y coordinate
 
+  console.log(props.onWaldoFound);
+
   const handleClick = (event) => {
     const rect = event.target.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     console.log(`Waldo coordinates: x=${x}, y=${y}`);
+
     setClickX(x);
     setClickY(y);
 
@@ -21,10 +24,11 @@ function Game() {
 
     // Check if the click coordinates fall within the tolerance range of the Waldo coordinates
     if (
-      Math.abs(clickX - waldoX) <= tolerance &&
-      Math.abs(clickY - waldoY) <= tolerance
+      Math.abs(x - waldoX) <= tolerance &&
+      Math.abs(y - waldoY) <= tolerance
     ) {
       setFound(true);
+      props.onWaldoFound();
     }
   };
 

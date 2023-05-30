@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-function Scoreboard() {
+function Scoreboard(props) {
+  console.log(props.timePassed);
   return (
-    <div>Scoreboard</div>
-  )
+    <div>
+      <p> Username, {props.timePassed} seconds</p>
+    </div>
+  );
 }
 
-export default Scoreboard
+export default Scoreboard;
